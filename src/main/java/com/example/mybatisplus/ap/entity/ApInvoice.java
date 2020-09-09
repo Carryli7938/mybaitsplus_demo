@@ -1,7 +1,6 @@
 package com.example.mybatisplus.ap.entity;
 
 import java.math.BigDecimal;
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
@@ -14,10 +13,9 @@ import java.io.Serializable;
  * </p>
  *
  * @author lida
- * @since 2020-09-09
+ * @since 2020-09-10
  */
-@TableName("AP_INVOICES_ALL")
-public class ApInvoicesAll implements Serializable {
+public class ApInvoice implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -114,7 +112,7 @@ public class ApInvoicesAll implements Serializable {
 
     @Override
     public String toString() {
-        return "ApInvoicesAll{" +
+        return "ApInvoice{" +
             "invoiceId=" + invoiceId +
             ", lastUpdateDate=" + lastUpdateDate +
             ", lastUpdatedBy=" + lastUpdatedBy +

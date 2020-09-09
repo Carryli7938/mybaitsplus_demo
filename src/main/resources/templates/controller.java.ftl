@@ -1,10 +1,16 @@
 package ${package.Controller};
 
 
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.example.mybatisplus.ap.dao.input.${table.entityName}QueryPara;
+import com.example.mybatisplus.ap.entity.${entity};
 import ${package.Service}.${table.serviceName};
-
+import com.example.mybatisplus.common.dto.ApiResult;
 
 <#if restControllerStyle>
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +46,12 @@ public class ${table.controllerName} {
 </#if>
 
     @Autowired
-    ${table.serviceName} ${table.serviceName};
+    ${table.serviceName} ${cfg.abc1};
 
+    @PostMapping(value = "/list", produces = "application/json;charset=utf-8")
+    public ApiResult list(@RequestBody ${table.entityName}QueryPara filter) {
+        IPage<${table.entityName}> result = ${cfg.abc1}.list(filter);
+        return ApiResult.ok("获取系统管理-用户基础信息表列表成功", result);
+    }    
 }
 </#if>

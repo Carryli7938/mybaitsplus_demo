@@ -1,9 +1,15 @@
 package ${package.ServiceImpl};
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import ${superServiceImplClassPackage};
+import com.example.mybatisplus.ap.dao.input.${entity}QueryPara;
 import ${package.Entity}.${entity};
 import ${package.Mapper}.${table.mapperName};
 import ${package.Service}.${table.serviceName};
-import ${superServiceImplClassPackage};
+
+
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -21,6 +27,12 @@ open class ${table.serviceImplName} : ${superServiceImplClass}<${table.mapperNam
 }
 <#else>
 public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.mapperName}, ${entity}> implements ${table.serviceName} {
+    @Autowired
+    ${table.mapperName} ${cfg.abc1}Mapper;
 
+    @Override
+    public IPage<${entity}> list(${entity}QueryPara filter) {
+        return  ${cfg.abc1}Mapper.select${entity}s(filter);
+    }
 }
 </#if>

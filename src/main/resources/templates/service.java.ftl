@@ -1,7 +1,10 @@
 package ${package.Service};
 
-import ${package.Entity}.${entity};
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import ${superServiceClassPackage};
+import com.example.mybatisplus.ap.dao.input.${entity}QueryPara;
+import ${package.Entity}.${entity};
+
 
 /**
  * <p>
@@ -15,6 +18,12 @@ import ${superServiceClassPackage};
 interface ${table.serviceName} : ${superServiceClass}<${entity}>
 <#else>
 public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
-
+    /**
+     * 系统管理-用户基础信息表列表
+     *
+     * @param filter
+     * @return
+     */
+    IPage<${entity}> list(${entity}QueryPara filter);
 }
 </#if>

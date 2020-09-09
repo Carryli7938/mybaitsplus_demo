@@ -3,7 +3,7 @@
 <mapper namespace="${package.Mapper}.${table.mapperName}">
 
 <#if enableCache>
-    <!-- 开启二级缓存 1-->
+    <!-- 开启二级缓存 -->
     <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
 
 </#if>
@@ -27,7 +27,7 @@
 
 </#if>
 <#if baseColumnList>
-    <!-- 通用查询结果列 1-->
+    <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
 <#list table.commonFields as field>
         ${field.columnName},
@@ -36,4 +36,16 @@
     </sql>
 
 </#if>
+
+<select id="selectApInvoices" resultMap="BaseResultMap">
+    SELECT
+         *
+    FROM ${table.tableName}
+    WHERE
+         1 = 1
+    <if test="filter.id!=null and filter.id!=''">
+        AND	id= #{filter.id}
+    </if>
+    ORDER BY id DESC
+</select>    
 </mapper>

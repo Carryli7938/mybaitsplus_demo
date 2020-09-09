@@ -1,10 +1,11 @@
 package com.example.mybatisplus.common.dto;
 
-
-import com.zhengqing.modules.common.enumeration.ResultCode;
+import com.example.mybatisplus.common.enumeration.ResultCode;
 
 /**
- *  <p> API返回参数 </p>
+ * <p>
+ * API返回参数
+ * </p>
  *
  * @description :
  * @author : zhengqing
